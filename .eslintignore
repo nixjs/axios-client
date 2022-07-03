@@ -1,0 +1,5 @@
+dist
+lib
+example
+**/*/.DS_Store
+**/node_modules/*

@@ -1,0 +1,31 @@
+stages:
+  - lint
+  - build
+  - release
+
+include:
+  - project: 'nft-marketplace2/devops/gitlab-ci'
+    ref: ci/nghinv/apollo
+    file: 'Workflows.gitlab-ci.yml'
+  - project: 'nft-marketplace2/devops/gitlab-ci'
+    ref: ci/nghinv/apollo
+    file: 'JS.gitlab-ci.yml'  
+  - project: 'nft-marketplace2/devops/gitlab-ci'
+    ref: ci/nghinv/apollo
+    file: 'Semver.gitlab-ci.yml'
+  - project: "nft-marketplace2/devops/gitlab-ci"
+    ref: main
+    file: "Sonarqube.gitlab-ci.yml"
+
+build-service:
+  stage: build
+  script:
+    - yarn install && yarn build
+  extends: .cache_js
+  cache:
+    policy: pull-push
+  artifacts:
+    paths:
+    - lib
+  tags:
+    - $DEPLOY_ENVIRONMENT

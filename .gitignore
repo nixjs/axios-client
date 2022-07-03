@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+lib
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+tsconfig.tsbuildinfo
+.rollup.cache
+.npmrc
