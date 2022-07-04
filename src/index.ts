@@ -234,3 +234,5 @@ export class HttpClient implements HttpClientProvider {
             .catch((error) => Promise.reject(error))
     }
 }
+
+export {Types, merge}
