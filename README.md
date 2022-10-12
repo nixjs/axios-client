@@ -22,26 +22,6 @@ class Client extends HttpClient {
     */
     private constructor(args: Types.HttpClientArgs) {
         super(args)
-        if (this.client) {
-            // Config interceptors
-            this.client.interceptors.request.use(
-                (config) => config,
-                (error) => {
-                    return Promise.resolve(error)
-                }
-            )
-            this.client.interceptors.response.use(
-                (response) => {
-                    // Return a successful response back to the calling service
-                    return response
-                },
-                (error) => {
-                    const { response } = error
-
-                    return Promise.resolve(response)
-                }
-            )
-        }
     }
 
     /**
@@ -57,6 +37,26 @@ class Client extends HttpClient {
         this._instance = new HttpClient({
             baseURL: "https://api.example.nixjs"
         })
+        if (this._instance && this._instance.client) {
+            // Config interceptors
+            this._instance.client.interceptors.request.use(
+                (config) => config,
+                (error) => {
+                    return Promise.resolve(error)
+                }
+            )
+            this._instance.client.interceptors.response.use(
+                (response) => {
+                    // Return a successful response back to the calling service
+                    return response
+                },
+                (error) => {
+                    const { response } = error
+
+                    return Promise.resolve(response)
+                }
+            )
+        }
         return this._instance
     }
 
