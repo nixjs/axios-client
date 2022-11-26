@@ -45,6 +45,9 @@ export const createClient = (
         if (hasProperty(headers, 'is-authorization')) {
             cHeaders['is-authorization'] = headers['is-authorization']
         }
+        if (hasProperty(headers, 'max-retries')) {
+            cHeaders['max-retries'] = headers['max-retries']
+        }
     }
     if (!cHeaders.Authorization && cHeaders['is-authorization']) {
         cHeaders.Authorization = setAuthorization(getAuthorizationToken(tokenStorage) || '')
