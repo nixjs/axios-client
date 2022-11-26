@@ -1,19 +1,20 @@
 import { AxiosRequestHeaders, AxiosResponse } from 'axios'
 
 export namespace Types {
-    export type Object<T> = Record<string, T>;
-    export type Undefined<T> = T | undefined;
+    export type Object<T> = Record<string, T>
+    export type Undefined<T> = T | undefined
     export type TokenStorage = {
-        storageKey: string,
+        storageKey: string
         storageType: 'localStorage' | 'session'
     }
     export interface BaseResponse<T> {
-        error?: unknown;
-        status?: "SUCCESS" | "ERROR";
-        data?: T;
+        error?: unknown
+        status?: 'SUCCESS' | 'ERROR'
+        data?: T
     }
-    export interface RequestHeader extends AxiosRequestHeaders {
-        'retry'?: boolean
+
+    export type RequestHeader = AxiosRequestHeaders & {
+        retry?: boolean
         'max-retries'?: number
         'is-authorization'?: boolean
         'content-type': string
@@ -24,7 +25,7 @@ export namespace Types {
         timeout?: number
         tokenStorage?: TokenStorage
     }
-    export interface ResponseData<T> extends AxiosResponse<T> { }
+    export interface ResponseData<T> extends AxiosResponse<T> {}
     export interface ResponseError {
         code: string | number
         message?: string
@@ -34,4 +35,3 @@ export namespace Types {
         error?: ResponseError
     }
 }
-
