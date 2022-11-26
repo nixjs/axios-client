@@ -1,6 +1,6 @@
 {
   "name": "@nixjs23n6/axios-client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A small wrapper for integrating Axios to Typescript.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

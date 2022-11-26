@@ -13,9 +13,9 @@ export namespace Types {
         data?: T;
     }
     export interface RequestHeader extends AxiosRequestHeaders {
-        'retry': boolean
-        'max-retries': number
-        'is-authorization': boolean
+        'retry'?: boolean
+        'max-retries'?: number
+        'is-authorization'?: boolean
         'content-type': string
     }
     export interface HttpClientArgs {

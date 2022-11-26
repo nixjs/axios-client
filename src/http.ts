@@ -33,9 +33,6 @@ export const createClient = (
     const { baseURL, tokenStorage, headers, timeout = REQUEST_TIMEOUT } = args
     let cHeaders: Types.RequestHeader = {
         'content-type': 'application/json',
-        retry: false,
-        'is-authorization': false,
-        'max-retries': 1,
     }
     if (headers) {
         cHeaders = {
